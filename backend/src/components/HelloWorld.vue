@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import store from '../store';
+
+const test = computed ( () => store.state.test) 
 
 defineProps({
   msg: String,
@@ -9,8 +12,11 @@ const count = ref(0)
 </script>
 
 <template>
-  <h1  class="bg-purple-500" >{{ msg }}</h1>
+  
 
+
+  <h1  class="bg-purple-500" >{{ msg }}</h1>
+ {{ test }}
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
@@ -31,6 +37,8 @@ const count = ref(0)
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+
+
 </template>
 
 <style scoped>
