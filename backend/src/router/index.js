@@ -7,7 +7,7 @@ import Login from "../views/Login.vue";
 import RequestPassword from "../views/RequestPassword.vue";
 import ResetPassword from "../views/ResetPassword.vue";
 import Products from "../views/Products.vue";
-
+import NotFound from "../views/NotFound.vue";
 import store from "../store";
 
 const routes = [
@@ -50,13 +50,18 @@ const routes = [
           }
     },
     {
-        path: '/ResetPassword',
+        path: '/reset-password/:token',
         name: 'ResetPassword',
         component: ResetPassword,
         meta: {
             requiresGuest: true
           }
     },
+    {
+      path: '/:pathMatch(.*)',
+      name: 'notfound',
+      component: NotFound,
+    }
 ];
 const router = createRouter( {   
     history: createWebHistory(), //domain.com#/users 
